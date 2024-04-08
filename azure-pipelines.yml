@@ -10,6 +10,11 @@ pool:
   name: 'agent-devops'
 
 steps:
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'Azure Container Registry'
+#     repository: 'wlz-ciz-client-portal-3'
+#     command: 'login'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
