@@ -15,8 +15,8 @@ steps:
 #   inputs:
 #     containerRegistry: 'Azure Container Registry'
 #     repository: 'wlz-ciz-client-portal-3' #change for test
-#     command: buildAndPush
-#     Dockerfile: Dockerfile
+#     command: 'buildAndPush'
+#     Dockerfile: 'Dockerfile'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
