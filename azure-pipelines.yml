@@ -10,19 +10,19 @@ pool:
   name: 'agent-devops-npr1'
 
 steps:
-# - task: Docker@2
-#   displayName: 'Build and Push Docker Image'
-#   inputs:
-#     containerRegistry: 'Azure Container Registry'
-#     repository: 'wlz-ciz-client-portal-3' #change for test
-#     command: buildAndPush
-#     Dockerfile: Dockerfile
-- task: Kubernetes@1
+- task: Docker@2
+  displayName: 'Build and Push Docker Image'
   inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Azure Resource Manager'
-    azureResourceGroup: 'ciz-npr1-d-rsg-aks-dta'
-    kubernetesCluster: 'ciz-npr1-d-aks-cluster01'
-    namespace: test
-    command: 'get'
-    arguments: 'pods'
+    containerRegistry: 'Azure Container Registry'
+    repository: 'wlz-ciz-client-portal-3' #change for test
+    command: buildAndPush
+    Dockerfile: Dockerfile
+# - task: Kubernetes@1
+#   inputs:
+#     connectionType: 'Azure Resource Manager'
+#     azureSubscriptionEndpoint: 'Azure Resource Manager'
+#     azureResourceGroup: 'ciz-npr1-d-rsg-aks-dta'
+#     kubernetesCluster: 'ciz-npr1-d-aks-cluster01'
+#     namespace: test
+#     command: 'get'
+#     arguments: 'pods'
