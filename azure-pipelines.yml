@@ -11,10 +11,12 @@ pool:
 
 steps:
 # - task: Docker@2
+#   displayName: 'Build and Push Docker Image'
 #   inputs:
 #     containerRegistry: 'Azure Container Registry'
-#     repository: 'wlz-ciz-client-portal-3'
-#     command: 'login'
+#     repository: 'wlz-ciz-client-portal-3' #change for test
+#     command: buildAndPush
+#     Dockerfile: Dockerfile
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
