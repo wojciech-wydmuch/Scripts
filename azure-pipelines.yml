@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: 'agent-devops-npr1'
+  name: 'agent-devops'
 
 steps:
 # - task: Docker@2
