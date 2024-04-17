@@ -27,6 +27,6 @@ steps:
     azureSubscriptionEndpoint: 'Azure Resource Manager'
     azureResourceGroup: 'ciz-npr1-d-rsg-aks-dta'
     kubernetesCluster: 'ciz-npr1-d-aks-cluster01'
-    #namespace: test
+    namespace: test
     command: 'get'
-    arguments: 'nodes'
+    arguments: 'pods'
