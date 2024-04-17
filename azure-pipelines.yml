@@ -17,10 +17,6 @@ steps:
 #     repository: 'wlz-ciz-client-portal-3'
 #     command: 'buildAndPush'
 #     Dockerfile: 'Dockerfile'
-- task: KubectlInstaller@0
-  displayName: Kubectl installer
-  inputs:
-    kubectlVersion: v1.22
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
