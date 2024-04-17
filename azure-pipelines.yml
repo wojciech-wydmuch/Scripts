@@ -25,8 +25,8 @@ steps:
   inputs:
     connectionType: 'Azure Resource Manager'
     azureSubscriptionEndpoint: 'Azure Resource Manager'
-    azureResourceGroup: 'ciz-cicd-c-rsg-aks-pega'
-    kubernetesCluster: 'ciz-cicd-c-aks-cluster01'
+    azureResourceGroup: 'ciz-npr1-d-rsg-aks-dta'
+    kubernetesCluster: 'ciz-npr1-d-aks-cluster01'
     #namespace: test
     command: 'get'
     arguments: 'nodes'
