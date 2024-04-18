@@ -18,10 +18,11 @@ steps:
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
 - task: KubectlInstaller@0
-  displayName: Kubectl installer
+  displayName: Choose kubectl v.1.22
   inputs: 
     kubectlVersion: 1.22.0
 - task: Kubernetes@1
+  displayName: Deploy to Azure Kubernetes Service
   inputs:
     connectionType: 'Azure Resource Manager'
     azureSubscriptionEndpoint: 'Azure Resource Manager'
