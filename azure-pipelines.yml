@@ -10,7 +10,7 @@ pool:
   name: 'agent-devops'
 
 steps:
-- script: echo 1.$(Rev:r)
+- script: echo 1.'$(Rev:r)''
 # - task: Docker@2
 #   displayName: 'Build and Push Docker Image'
 #   inputs:
