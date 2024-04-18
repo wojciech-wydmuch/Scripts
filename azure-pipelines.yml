@@ -10,23 +10,23 @@ pool:
   name: 'agent-devops'
 
 steps:
-- task: Docker@2
-  displayName: 'Build and Push Docker Image'
-  inputs:
-    containerRegistry: 'Azure Container Registry'
-    repository: 'wlz-ciz-client-portal-3'
-    command: 'buildAndPush'
-    Dockerfile: 'Dockerfile'
-# - task: KubectlInstaller@0
-#   displayName: Kubectl installer
-#   inputs: 
-#     kubectlVersion: 1.22.0
-# - task: Kubernetes@1
+# - task: Docker@2
+#   displayName: 'Build and Push Docker Image'
 #   inputs:
-#     connectionType: 'Azure Resource Manager'
-#     azureSubscriptionEndpoint: 'Azure Resource Manager'
-#     azureResourceGroup: 'ciz-npr1-d-rsg-aks-dta'
-#     kubernetesCluster: 'ciz-npr1-d-aks-cluster01'
-#     namespace: test
-#     command: 'get'
-#     arguments: 'pods'
+#     containerRegistry: 'Azure Container Registry'
+#     repository: 'wlz-ciz-client-portal-3'
+#     command: 'buildAndPush'
+#     Dockerfile: 'Dockerfile'
+- task: KubectlInstaller@0
+  displayName: Kubectl installer
+  inputs: 
+    kubectlVersion: 1.22.0
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'Azure Resource Manager'
+    azureResourceGroup: 'ciz-prd1-p-rsg-aks'
+    kubernetesCluster: 'ciz-prd1-p-aks-cluster01'
+    namespace: test
+    command: 'get'
+    arguments: 'pods'
