@@ -17,7 +17,7 @@ steps:
     repository: 'test'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
-    tags: v1.$(Build.BuildNumber)
+    tags: v1.$(Build.BuildId)
 # - task: KubectlInstaller@0
 #   displayName: Choose kubectl v.1.22
 #   inputs: 
