@@ -31,4 +31,4 @@ steps:
     kubernetesCluster: 'ciz-npr1-d-aks-cluster01'
     namespace: test
     command: 'apply'
-    arguments: '-f test-deployment.yaml --set=image=cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.$(Build.BuildId)'
+    arguments: '-f test-deployment.yaml set image cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.$(Build.BuildId)'
