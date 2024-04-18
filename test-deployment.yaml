@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: cizpriprocesshwtilbmefbyo2.azurecr.io/test:${{ github.run_number }}
+        image: cizpriprocesshwtilbmefbyo2.azurecr.io/test:$(build.buildnumber)
         ports:
         - containerPort: 80
