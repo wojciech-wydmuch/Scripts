@@ -30,5 +30,5 @@ steps:
     azureResourceGroup: 'ciz-npr1-d-rsg-aks-dta'
     kubernetesCluster: 'ciz-npr1-d-aks-cluster01'
     namespace: test
-    command: 'set'
-    arguments: 'image deployment/nginx nginx=cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.$(Build.BuildId)'
+    command: 'apply'
+    arguments: '-f test-deployment.yaml'
