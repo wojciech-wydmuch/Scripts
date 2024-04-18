@@ -12,16 +12,11 @@ spec:
       labels:
         app: nginx
     spec:
-  containers:
-    - name: nginx
-      image: cizpriprocesshwtilbmefbyo2.azurecr.io/wlz-react-client:72
-      volumeMounts:
-      - name: basic-config
-        mountPath: /etc/nginx/conf.d
-  volumes:
-    - name: basic-config
-      configMap:
-        name: basic-config
+      containers:
+      - name: nginx
+        image: cizpriprocesshwtilbmefbyo2.azurecr.io/wlz-ciz-client-portal-3:72
+        ports:
+        - containerPort: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
