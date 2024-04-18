@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: "cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.$(Build.BuildId)"
+        image: cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.80
         ports:
         - containerPort: 80
