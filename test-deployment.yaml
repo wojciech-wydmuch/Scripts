@@ -3,9 +3,10 @@ kind: Pod
 metadata:
   name: nginx
 spec:
+  replicas: 1
   containers:
-    - name: basic
-      image: nginx
+    - name: nginx
+      image: cizpriprocesshwtilbmefbyo2.azurecr.io/wlz-react-client:72
       volumeMounts:
       - name: basic-config
         mountPath: /etc/nginx/conf.d
