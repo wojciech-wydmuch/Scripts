@@ -10,14 +10,14 @@ pool:
   name: 'agent-devops'
 
 steps:
-- script: echo 1.'$(Rev:r)'
-# - task: Docker@2
-#   displayName: 'Build and Push Docker Image'
-#   inputs:
-#     containerRegistry: 'Azure Container Registry'
-#     repository: 'test'
-#     command: 'buildAndPush'
-#     Dockerfile: 'Dockerfile'
+- task: Docker@2
+  displayName: 'Build and Push Docker Image'
+  inputs:
+    containerRegistry: 'Azure Container Registry'
+    repository: 'test'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfile'
+    tags: v1.$(Build.BuildNumber)
 # - task: KubectlInstaller@0
 #   displayName: Choose kubectl v.1.22
 #   inputs: 
