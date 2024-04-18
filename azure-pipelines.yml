@@ -14,7 +14,7 @@ steps:
   displayName: 'Build and Push Docker Image'
   inputs:
     containerRegistry: 'Azure Container Registry'
-    repository: 'wlz-ciz-client-portal-3'
+    repository: 'test'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
 - task: KubectlInstaller@0
