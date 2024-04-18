@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: basic
+      image: nginx
+      volumeMounts:
+      - name: basic-config
+        mountPath: /etc/nginx/conf.d
+  volumes:
+    - name: basic-config
+      configMap:
+        name: basic-config
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: nginx
+  name: nginx-ingress
+  namespace: test
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+    appgw.ingress.kubernetes.io/use-private-ip: "true"
+spec:
+  rules:
+  - host: nginx.cizpriprocess.local
+    http:
+      paths:
+      - pathType: ImplementationSpecific
+        path: /*
+        backend:
+          service:
+            name: nginx
+            port:
+              number: 80
