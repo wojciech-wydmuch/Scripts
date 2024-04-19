@@ -32,3 +32,8 @@ steps:
     namespace: test
     command: 'set'
     arguments: 'image deployment/nginx nginx=cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.$(Build.BuildId)'
+    azureContainerRegistry: 
+- task: CmdLine@2
+  displayName: Remove brand-new image on the cizcicdcdevops01 machine
+  inputs:
+    script: 'docker rmi -f cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.$(Build.BuildId)'
