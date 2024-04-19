@@ -1,39 +1,33 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- master
+- master #please modify to your requirements
 
 pool:
-  name: 'agent-devops'
+  name: 'agent-devops' #do not modify
 
 steps:
 - task: Docker@2
-  displayName: 'Build and Push Docker Image'
+  displayName: 'Build and Push Docker Image to ACR'
   inputs:
     containerRegistry: 'Azure Container Registry'
-    repository: 'test'
+    repository: 'wlz-ciz-client-portal-3' #do not modify
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
-    tags: v1.$(Build.BuildId)
-- task: KubectlInstaller@0
-  displayName: Choose kubectl v.1.22
+    tags: v1.$(Build.BuildId) #please modify to your requirements
+- task: KubectlInstaller@0 #do not modify entire task
+  displayName: Use kubectl v.1.22
   inputs: 
     kubectlVersion: 1.22.0
-- task: Kubernetes@1
+- task: Kubernetes@1 #do not modify entire task
   displayName: Deploy to Azure Kubernetes Service
   inputs:
     connectionType: 'Azure Resource Manager'
     azureSubscriptionEndpoint: 'Azure Resource Manager'
     azureResourceGroup: 'ciz-npr1-d-rsg-aks-dta'
     kubernetesCluster: 'ciz-npr1-d-aks-cluster01'
-    namespace: test
+    namespace: ciz-dev-pega-react
     command: 'set'
-    arguments: 'image deployment/nginx nginx=cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.$(Build.BuildId)'
-    azureContainerRegistry: 
-- task: CmdLine@2
+    arguments: 'image deployment/wlz-react-client wlz-react-client=cizpriprocesshwtilbmefbyo2.azurecr.io/wlz-ciz-client-portal-3:v1.$(Build.BuildId)'
+- task: CmdLine@2 #do not modify entire task
   displayName: Remove brand-new image on the cizcicdcdevops01 machine
   inputs:
-    script: 'docker rmi -f cizpriprocesshwtilbmefbyo2.azurecr.io/test:v1.$(Build.BuildId)'
+    script: 'docker rmi -f cizpriprocesshwtilbmefbyo2.azurecr.io/wlz-ciz-client-portal-3:v1.$(Build.BuildId)'
